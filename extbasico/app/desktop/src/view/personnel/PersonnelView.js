@@ -1,4 +1,4 @@
-Ext.define('Extbasico.view.personnel.PersonnelView',{
+Ext.define('Extbasico.view.personnel.personnelView',{
     extend: 'Ext.grid.Grid',
     xtype: 'personnelview',
     cls: 'personnelview',
@@ -14,7 +14,7 @@ Ext.define('Extbasico.view.personnel.PersonnelView',{
     },
     columns: [
         {
-            text: 'Name',
+            text: 'Nome',
             dataIndex: 'name',
             editable: true,
             width: 100,
@@ -22,7 +22,7 @@ Ext.define('Extbasico.view.personnel.PersonnelView',{
         },
         {text: 'Email',dataIndex: 'email',editable: true, width: 230},
         {
-            text: 'Phone',
+            text: 'Telefone',
             dataIndex: 'phone',
             editable: true,
             width: 150
