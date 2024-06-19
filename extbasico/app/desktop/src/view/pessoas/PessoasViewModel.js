@@ -12,6 +12,10 @@ Ext.define('Extbasico.view.pessoas.PessoasViewModel', {
                 { id: 2, text: 'Segundo' },
                 { id: 3, text: 'Terceiro' }
             ]
+        },
+        storepessoas: {
+            fields: ['name'],
+            data: 'storepessoas'
         }
 
     }

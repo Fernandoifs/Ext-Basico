@@ -5,7 +5,7 @@ Ext.define('Extbasico.view.pessoas.pessoasView', {
     requires: ['Ext.grid.rowedit.Plugin'],
     controller: { type: 'pessoasviewcontroller' },
     viewModel: { type: 'pessoasviewmodel' },
-    store: { type: 'storepessoas' },
+    store: { type: 'storepessoasshared' },
     grouped: true,
     plugins: {
         rowedit: {
@@ -60,8 +60,8 @@ Ext.define('Extbasico.view.pessoas.pessoasView', {
             id: 'combo2',
             label: 'Selecione uma pessoa',
             style: 'padding: 5px 10px 10px 15px;',
-            displayField: 'text',//rever
-            valueField: 'name',
+            displayField: 'name',//rever
+            valueField: 'id',
             clearable: true,
             grow: true, //*aumenta a combo se o valor for maior
             growMin: 180,
@@ -70,8 +70,12 @@ Ext.define('Extbasico.view.pessoas.pessoasView', {
             editable: true,//permite escrever no campo da combo
             queryMode: 'local',//ao escrever busca autocompleta com o valor da combo,salva valores localmente
             anyMatch: true,//busca qualquer palavra dentro dos valores
+            store: {
+                type: 'storepessoasshared',
+                autoLoad: true
+            },
             bind: {
-                store: '{storepessoas}'
+                value: '{linhaSelecionada}',
             }
         }
         ]

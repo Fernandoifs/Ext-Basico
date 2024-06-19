@@ -1,6 +1,6 @@
 Ext.define('Extbasico.store.StorePessoas', {
     extend: 'Ext.data.Store',
-    alias: 'store.storepessoas',
+    alias: 'store.storepessoasshared',
     model: 'Extbasico.model.Pessoas',
     groupField: 'dept',
     data: { 
