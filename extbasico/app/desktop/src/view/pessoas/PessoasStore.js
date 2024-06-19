@@ -1,11 +1,12 @@
-Ext.define('Extbasico.view.pessoas.PessoasViewStore', {
+Ext.define('Extbasico.view.pessoas.PessoasStore', {
     extend: 'Ext.data.Store',
-    alias: 'store.pessoasviewstore',
+    alias: 'store.pessoasstore',
     fields: [
         'name', 'email', 'phone', 'dept'
     ],
     groupField: 'dept',
-    data: { items: [
+    data: { 
+        items: [
         { name: 'Jean Luc',   email: "jeanluc.picard@enterprise.com", phone: "555-111-1111", dept: "bridge" },
         { name: 'ModernWorf', email: "worf.moghsson@enterprise.com",  phone: "555-222-2222", dept: "engine" },
         { name: 'Deanna',     email: "deanna.troi@enterprise.com",    phone: "555-333-3333", dept: "bridge" },

@@ -1,11 +1,11 @@
-Ext.define('Extbasico.view.pessoas.pessoasView', {
+Ext.define('Extbasico.view.pessoas.pessoasview', {
     extend: 'Ext.grid.Grid',
     xtype: 'pessoasview',
     cls: 'pessoasview',
     requires: ['Ext.grid.rowedit.Plugin'],
-    controller: { type: 'pessoasviewcontroller' },
-    viewModel: { type: 'pessoasviewmodel' },
-    store: { type: 'storepessoasshared' },
+    controller: { type: 'pessoascontroller' },
+    viewModel: { type: 'pessoasmodel' },
+    store: { type: 'storepessoasshared' }, //declaração do store para usar na grid
     grouped: true,
     plugins: {
         rowedit: {
@@ -52,7 +52,7 @@ Ext.define('Extbasico.view.pessoas.pessoasView', {
             valueField: 'id',//campo que a vai pegar da store  
             clearable: true,//permite limpar campo 
             bind: {
-                store: '{dataview}'
+                store: '{storemodel}' //declarado na model, não existe o store separado, precisa bindar da model
             }
         },
         {
@@ -71,11 +71,8 @@ Ext.define('Extbasico.view.pessoas.pessoasView', {
             queryMode: 'local',//ao escrever busca autocompleta com o valor da combo,salva valores localmente
             anyMatch: true,//busca qualquer palavra dentro dos valores
             store: {
-                type: 'storepessoasshared',
+                type: 'storepessoasshared', //componente store criado, basta declarar dessa forma
                 autoLoad: true
-            },
-            bind: {
-                value: '{linhaSelecionada}',
             }
         }
         ]

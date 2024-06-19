@@ -1,22 +1,17 @@
-Ext.define('Extbasico.view.pessoas.PessoasViewModel', {
+Ext.define('Extbasico.view.pessoas.PessoasModel', {
 	extend: 'Ext.app.ViewModel',
-	alias: 'viewmodel.pessoasviewmodel',
+	alias: 'viewmodel.pessoasmodel',
 	data: {
 		name: 'Extbasico'
 	},
     stores: {
-        dataview: {
+        storemodel: {
             fields: ['id', 'text'],
             data: [
                 { id: 1, text: 'Primeiro' },
                 { id: 2, text: 'Segundo' },
                 { id: 3, text: 'Terceiro' }
             ]
-        },
-        storepessoas: {
-            fields: ['name'],
-            data: 'storepessoas'
         }
-
     }
 });
