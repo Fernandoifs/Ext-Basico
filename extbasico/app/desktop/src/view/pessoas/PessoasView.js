@@ -70,10 +70,13 @@ Ext.define('Extbasico.view.pessoas.pessoasview', {
             editable: true,//permite escrever no campo da combo
             queryMode: 'local',//ao escrever busca autocompleta com o valor da combo,salva valores localmente
             anyMatch: true,//busca qualquer palavra dentro dos valores
-            store: {
-                type: 'storepessoasshared', //componente store criado, basta declarar dessa forma
-                autoLoad: true
+            bind: {
+                store: '{storemodel2}' //declarado na model, não existe o store separado, precisa bindar da model
             }
+            // store: {
+            //     type: 'storepessoasshared', //componente store criado, basta declarar dessa forma
+            //     autoLoad: true
+            // }
         }
         ]
     }]
