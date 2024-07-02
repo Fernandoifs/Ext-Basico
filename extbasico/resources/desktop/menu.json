@@ -2,7 +2,12 @@
   "leaf": false,
   "children": [
     { "text": "Home", "iconCls": "x-fa fa-home", "xtype": "homeview", "leaf": true },
-    { "text": "Personnel", "iconCls": "x-fa fa-table", "xtype": "personnelview","leaf": true },
-    { "text": "Pessoas", "iconCls": "x-fa fa-user", "xtype": "pessoasview","leaf": true }
+    { "text": "Personnel", "iconCls": "x-fa fa-users", "xtype": "personnelview", "leaf": true },  
+    { "text": "Dashboard", "iconCls": "x-fa fa-tachometer-alt", "xtype": "dashboardview", "leaf": true },  
+    { "text": "Pessoas", "iconCls": "x-fa fa-users", "xtype": "pessoasview", "leaf": true },  
+    { "text": "Produtos", "iconCls": "x-fa fa-box", "xtype": "produtosview", "leaf": true },  
+    { "text": "Agenda", "iconCls": "x-fa fa-calendar", "xtype": "agendaview", "leaf": true }, 
+    { "text": "Minha Conta", "iconCls": "x-fa fa-user-circle", "xtype": "minhacontaview", "leaf": true }, 
+    { "text": "Configurações", "iconCls": "x-fa fa-cogs", "xtype": "configuracoesview", "leaf": true } 
   ]
 }
