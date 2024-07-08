@@ -1,83 +1,120 @@
 Ext.define('Extbasico.view.pessoas.pessoasview', {
-    extend: 'Ext.grid.Grid',
+    extend: 'Ext.container.Container',
     xtype: 'pessoasview',
     cls: 'pessoasview',
     requires: ['Ext.grid.rowedit.Plugin'],
     controller: { type: 'pessoascontroller' },
     viewModel: { type: 'pessoasmodel' },
-    store: { type: 'storepessoasshared' }, //declaração do store para usar na grid
-    grouped: true,
-    plugins: {
-        rowedit: {
-            autoConfirm: false
-        }
-    },
-    columns: [
+    store: { type: 'storepessoasshared' }, // declaração do store para usar na grid
+    layout: 'vbox',
+    items: [
         {
-            text: 'Nome',
-            dataIndex: 'name',
-            editable: true,
-            width: 100,
-            cell: { userCls: 'bold' }
+            xtype: 'grid',
+            title: 'Pessoas Cadastradas',
+            flex: 1,
+            store: { type: 'storepessoasshared' },
+            plugins: {
+                rowedit: {
+                    autoConfirm: false
+                }
+            },
+            columns: [
+                {
+                    text: 'Nome',
+                    dataIndex: 'name',
+                    editable: true,
+                    width: 250,
+                    cell: { userCls: 'bold' }
+                },
+                {
+                    text: 'Telefone',
+                    dataIndex: 'phone',
+                    editable: true,
+                    width: 150
+                },
+                {
+                    text: 'Endereço',
+                    dataIndex: 'address',
+                    editable: true,
+                    width: 200
+                },
+                {
+                    text: 'Email',
+                    dataIndex: 'email',
+                    editable: true,
+                    width: 230
+                }
+            ],
+            listeners: {
+                canceledit: 'onEditCancelled'
+            }
         },
         {
-            text: 'Email',
-            dataIndex: 'email',
-            editable: true,
-            width: 230
+            xtype: 'container',
+            layout: 'hbox',
+            padding: 10,
+            items: [
+                {
+                    xtype: 'button',
+                    text: 'Incluir',
+                    handler: 'onAddClick',
+                    iconCls: 'x-fa fa-plus'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Alterar',
+                    handler: 'onEditClick',
+                    iconCls: 'x-fa fa-edit',
+                    margin: '0 0 0 10'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Excluir',
+                    handler: 'onDeleteClick',
+                    iconCls: 'x-fa fa-trash',
+                    margin: '0 0 0 10'
+                }
+            ]
         },
-        {
-            text: 'Telefone',
-            dataIndex: 'phone',
-            editable: true,
-            width: 150
-        }
+        // {
+        //     xtype: 'container',
+        //     layout: 'hbox',
+        //     padding: 10,
+        //     items: [
+        //         {
+        //             xtype: 'combobox',
+        //             id: 'combo1',
+        //             label: 'Selecione uma pessoa',
+        //             style: 'padding: 5px 10px 10px 15px;',
+        //             labelWidth: 90,
+        //             displayField: 'text',
+        //             valueField: 'id',
+        //             clearable: true,
+        //             bind: {
+        //                 store: '{storemodel}'
+        //             }
+        //         },
+        //         {
+        //             xtype: 'combobox',
+        //             id: 'combo2',
+        //             label: 'Selecione uma pessoa',
+        //             style: 'padding: 5px 10px 10px 15px;',
+        //             displayField: 'name',
+        //             valueField: 'id',
+        //             clearable: true,
+        //             grow: true,
+        //             growMin: 180,
+        //             growMax: 300,
+        //             matchFieldWidth: true,
+        //             editable: true,
+        //             queryMode: 'local',
+        //             anyMatch: true,
+        //             bind: {
+        //                 store: '{storemodel2}'
+        //             }
+        //         }
+        //    ]
+        //}
     ],
-    listeners: {
-        canceledit: 'onEditCancelled'
-    },
-    //EXEMPLOS DE COMBO
-    // COMBO 1
-    items: [{
-        xtype: 'container',
-        layout: 'hbox',
-        //docked: 'bottom', //localização do componente
-        items: [{
-            xtype: 'combobox',
-            id: 'combo1',
-            label: 'Selecione uma pessoa', //identificação e placeholder
-            style: 'padding: 5px 10px 10px 15px;',
-            labelWidth: 90,
-            displayField: 'text',
-            valueField: 'id',//campo que a vai pegar da store  
-            clearable: true,//permite limpar campo 
-            bind: {
-                store: '{storemodel}' //declarado na model, não existe o store separado, precisa bindar da model
-            }
-        },
-        {
-            xtype: 'combobox',
-            id: 'combo2',
-            label: 'Selecione uma pessoa',
-            style: 'padding: 5px 10px 10px 15px;',
-            displayField: 'name',//rever
-            valueField: 'id',
-            clearable: true,
-            grow: true, //*aumenta a combo se o valor for maior
-            growMin: 180,
-            growMax: 300,//*
-            matchFieldWidth: true,//aumenta o a exibição do campo da combo
-            editable: true,//permite escrever no campo da combo
-            queryMode: 'local',//ao escrever busca autocompleta com o valor da combo,salva valores localmente
-            anyMatch: true,//busca qualquer palavra dentro dos valores
-            bind: {
-                store: '{storemodel2}' //declarado na model, não existe o store separado, precisa bindar da model
-            }
-            // store: {
-            //     type: 'storepessoasshared', //componente store criado, basta declarar dessa forma
-            //     autoLoad: true
-            // }
-        }
-        ]
-    }]
+ 
 });

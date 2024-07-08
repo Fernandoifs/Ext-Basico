@@ -1,8 +1,7 @@
 {
   "leaf": false,
   "children": [
-    { "text": "Home", "iconCls": "x-fa fa-home", "xtype": "homeview", "leaf": true },
-    { "text": "Personnel", "iconCls": "x-fa fa-users", "xtype": "personnelview", "leaf": true },  
+    { "text": "Home", "iconCls": "x-fa fa-home", "xtype": "homeview", "leaf": true }, 
     { "text": "Dashboard", "iconCls": "x-fa fa-tachometer-alt", "xtype": "dashboardview", "leaf": true },  
     { "text": "Pessoas", "iconCls": "x-fa fa-users", "xtype": "pessoasview", "leaf": true },  
     { "text": "Produtos", "iconCls": "x-fa fa-box", "xtype": "produtosview", "leaf": true },  
