@@ -5,14 +5,16 @@ Ext.define('Extbasico.view.produtos.produtosview', {
     requires: ['Ext.grid.rowedit.Plugin'],
     controller: { type: 'produtoscontroller' },
     viewModel: { type: 'produtosmodel' },
-    store: { type: 'storeprodutosshared' }, // declaração do store para usar na grid
     layout: 'vbox',
     items: [
         {
             xtype: 'grid',
             title: 'Produtos Cadastrados',
             flex: 1,
-            store: { type: 'storeprodutosshared' },
+            //store: { type: 'storeprodutosshared' },// declaração do store para usar na grid
+            bind: {
+                store: '{storeprodutosmodel}'
+            },
             plugins: {
                 rowedit: {
                     autoConfirm: false
@@ -57,7 +59,7 @@ Ext.define('Extbasico.view.produtos.produtosview', {
                 {
                     xtype: 'button',
                     text: 'Alterar',
-                    handler: 'onEditClick',
+                    handler: 'onEditar',
                     iconCls: 'x-fa fa-edit',
                     margin: '0 0 0 10'
                 },

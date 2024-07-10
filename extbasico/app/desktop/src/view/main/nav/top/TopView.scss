@@ -2,13 +2,13 @@
 	border-left: 0; 
 	border-top: 0; 
 	padding: 0 0 0 0;
-	color: $base-foreground-color; 
-	background-color: darken($base-color, 20%);
+	background-color: $reverse-background-color//($base-color, 10%); //cor do topo do menu lateral esquerdo
 }
 
 .topviewtext { 
 	font-size: 28px; 
 	padding: 0 0 0 15px;
+	color: $base-foreground-color; 
 	line-height: 50px;
 }
 

@@ -1,8 +1,8 @@
 .headerview {
 	border-left: 0;
 	border-top: 0;
-	color: $base-foreground-color;
-	background-color: $base-color;
+	color:#ffffff; //$base-foreground-color;//cor fonte do navbar
+	background-color:#0875ac// #ff6b70;// $base-color; //cor do navbar
 }
 
 .headerviewtext { 
@@ -18,3 +18,20 @@
 	$icon-color:  $base-foreground-color,
 	$border-color: transparent
 );
+
+
+// Cores para usar:
+// navbar texto: #ffffff;
+// navbar corpo: #ff6b70;
+
+// Titulo texto de componente: #ffffff;
+// Titulo corpo de componente: #2981bf,#92c4e4
+
+// #154c79
+// #a03e01 
+// #c4ac9b
+// #808e8f
+
+// #0875ac
+// #bbd3e3
+// #ca7e78

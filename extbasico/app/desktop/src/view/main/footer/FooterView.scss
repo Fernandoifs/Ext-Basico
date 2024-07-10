@@ -1,13 +1,13 @@
 .footerview { 
 	border-left: 0; 
 	border-top: 0; 
-	color: $base-foreground-color;
-	background-color: $base-color;
+	background-color: #0875ac; //$base-color;
 }
 
 .footerviewtext { 
 	font-size: 16px; 
-  color: $base-foreground-color;
+	color: #ffffff; //$base-foreground-color;
+	//font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 	padding: 0 0 0 15px;
 }
 

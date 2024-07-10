@@ -5,10 +5,10 @@
 
 @include treelist-ui(
   $ui: 'nav',
-  $background-color: darken($base-color, 20%),
-  $padding: 5px 10px 0 10px,
+  $background-color: $reverse-background-color,//darken($base-color, 20%), //cor de fundo dos itens do menu lateral esquerdo
+  $padding: 5px 10px 0 10px, 
 
-  $toolstrip-background-color:  $base-light-color,
+  $toolstrip-background-color: $base-light-color,
 
   $tool-float-indicator-color: $base-light-color,
   $tool-float-indicator-width: 4px,
@@ -31,19 +31,18 @@
   $item-line-height : 35px,
   $item-text-overflow: initial,
 
-  $item-icon-color: $base-foreground-color,
-  $item-text-color: $base-foreground-color,
-  $item-text-over-color: $base-foreground-color,
+  $item-icon-color: #ffffff,//$base-foreground-color, //cor dos icones do menu lateral esquerdo
+  $item-text-color: #ffffff,//$base-foreground-color, //cor da fonte do menu lateral esquerdo
+  $item-text-over-color: $base-foreground-color, //nao sei
 
-  $item-expander-color: $base-foreground-color,
-  $item-icon-over-color: $base-foreground-color,
+  $row-over-background-color: $reverse-background-color, //cor da linha do evento do mouse do menu lateral esquerdo
+  $item-expander-color: $base-foreground-color, //cor dos icones do evento do mouse do menu lateral esquerdo
+  $item-icon-over-color: $base-foreground-color, //cor da fonte do evento do mouse do menu lateral esquerdo
 
-  $item-expander-over-color: $base-light-color,
+  $item-expander-over-color: $base-light-color,//nao sei
 
-  $item-expanded-child-background-color: $base-light-color,
+  $item-expanded-child-background-color: $base-light-color, //nao sei
   $item-expanded-background-color: transparent,
-
-  $row-over-background-color: $reverse-background-color,
 
   $row-selected-background-color: $base-color
 );

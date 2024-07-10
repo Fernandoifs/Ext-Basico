@@ -5,14 +5,13 @@ Ext.define('Extbasico.view.pessoas.pessoasview', {
     requires: ['Ext.grid.rowedit.Plugin'],
     controller: { type: 'pessoascontroller' },
     viewModel: { type: 'pessoasmodel' },
-    store: { type: 'storepessoasshared' }, // declaração do store para usar na grid
     layout: 'vbox',
     items: [
         {
             xtype: 'grid',
             title: 'Pessoas Cadastradas',
             flex: 1,
-            store: { type: 'storepessoasshared' },
+            store: { type: 'storepessoasshared' },// declaração do store para usar na grid
             plugins: {
                 rowedit: {
                     autoConfirm: false
