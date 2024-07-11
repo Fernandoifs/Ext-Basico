@@ -42,7 +42,8 @@ Ext.define('Extbasico.view.produtos.produtosview', {
                 }
             ],
             listeners: {
-                canceledit: 'onEditCancelled'
+                canceledit: 'onEditCancelled',
+                select: 'onLinhaSelecionada'
             }
         },
         {

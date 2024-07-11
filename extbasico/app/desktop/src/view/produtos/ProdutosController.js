@@ -15,5 +15,12 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
                 Ext.Msg.alert('Erro', 'Falha ao atualizar o produto.');
             }
         });
+    },
+    onLinhaSelecionada: function (grid, record, index, eOpts) {
+        debugger
+        //var nome = record.get('nome');
+        var nome = record.data.nome;
+        Ext.Msg.alert('Seleção', 'Você selecionou a linha ' + nome);
     }
 });
+

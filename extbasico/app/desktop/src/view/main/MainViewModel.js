@@ -4,7 +4,7 @@ Ext.define('Extbasico.view.main.MainViewModel', {
 	data: {
 		name: 'Extbasico',
 		navCollapsed:       false,
-		navview_max_width:    300,
+		navview_max_width:    300, //tamanho do menu lateral
 		navview_min_width:     44,
 		topview_height:        75,
 		bottomview_height:     50,
