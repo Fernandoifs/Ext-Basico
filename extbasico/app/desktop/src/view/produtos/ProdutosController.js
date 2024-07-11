@@ -16,11 +16,9 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
             }
         });
     },
+    // Verifica a linha selecionada
     onLinhaSelecionada: function (grid, record, index, eOpts) {
-        debugger
-        //var nome = record.get('nome');
-        var nome = record.data.nome;
-        Ext.Msg.alert('Seleção', 'Você selecionou a linha ' + nome);
+        var nome = record[0].get('nome');
+        Ext.Msg.alert('Seleção', 'Você selecionou o produto <b>' + nome + '</b>!');
     }
 });
-

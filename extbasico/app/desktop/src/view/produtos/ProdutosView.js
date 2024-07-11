@@ -6,6 +6,7 @@ Ext.define('Extbasico.view.produtos.produtosview', {
     controller: { type: 'produtoscontroller' },
     viewModel: { type: 'produtosmodel' },
     layout: 'vbox',
+    alias: 'produtus',
     items: [
         {
             xtype: 'grid',
