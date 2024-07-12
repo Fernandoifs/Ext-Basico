@@ -6,11 +6,11 @@ Ext.define('Extbasico.view.produtos.produtosview', {
     controller: { type: 'produtoscontroller' },
     viewModel: { type: 'produtosmodel' },
     layout: 'vbox',
-    alias: 'produtus',
     items: [
         {
             xtype: 'grid',
             title: 'Produtos Cadastrados',
+            reference: 'produtosGrid', //referencia paraa usar na controller 
             flex: 1,
             //store: { type: 'storeprodutosshared' },// declaração do store para usar na grid
             bind: {
@@ -44,7 +44,7 @@ Ext.define('Extbasico.view.produtos.produtosview', {
             ],
             listeners: {
                 canceledit: 'onEditCancelled',
-                select: 'onLinhaSelecionada'
+                //select: 'onLinhaSelecionada'
             }
         },
         {

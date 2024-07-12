@@ -6,7 +6,7 @@ Ext.define('Extbasico.view.main.header.HeaderView', {
     items: [
         { 
             xtype: 'container',
-            cls: 'headerviewtext',
+            cls: 'headerviewtext',  
             bind: { html: '{heading}' }
         },
         '->',

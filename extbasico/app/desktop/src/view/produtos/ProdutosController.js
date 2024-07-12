@@ -6,19 +6,22 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
         var user = Ext._find(value.record.store.config.data.items, { name: value.record.data.name });
         Ext.Msg.confirm('Confirmação', value.record.data.name + ': ' + user.phone + ' is phone number', 'onConfirm', this);
     },
-    onEditar: function (editor, context) {
-        context.store.sync({
-            success: function () {
-                Ext.Msg.alert('Sucesso', 'Produto atualizado com sucesso.');
-            },
-            failure: function () {
-                Ext.Msg.alert('Erro', 'Falha ao atualizar o produto.');
-            }
-        });
+    onEditar: function () {
+        var grid = this.lookupReference('produtosGrid'),
+            selection = grid.getSelectionModel().getSelection();
+
+        if (selection.length === 0) {
+            Ext.Msg.alert('Aviso', 'Nenhum produto selecionado para edição.');
+            return;
+        }
+
+        var record = selection[0]; // Obtém o primeiro registro selecionado
+        var editor = grid.findPlugin('rowediting');
+        editor.startEdit(record, 0);
     },
     // Verifica a linha selecionada
-    onLinhaSelecionada: function (grid, record, index, eOpts) {
-        var nome = record[0].get('nome');
-        Ext.Msg.alert('Seleção', 'Você selecionou o produto <b>' + nome + '</b>!');
-    }
+    //onLinhaSelecionada: function (grid, record, index, eOpts) {
+    //    var nome = record[0].get('nome');
+    //    Ext.Msg.alert('Seleção', 'Você selecionou o produto <b>' + nome + '</b>!');
+    //}
 });
