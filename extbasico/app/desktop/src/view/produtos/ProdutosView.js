@@ -12,10 +12,10 @@ Ext.define('Extbasico.view.produtos.produtosview', {
             title: 'Produtos Cadastrados',
             reference: 'produtosGrid', //referencia paraa usar na controller 
             flex: 1,
-            //store: { type: 'storeprodutosshared' },// declaração do store para usar na grid
-            bind: {
-                store: '{storeprodutosmodel}'
-            },
+            store: { type: 'storeprodutosshared' },// declaração do store para usar na grid
+            // bind: {
+            //     store: '{storeprodutosmodel}'
+            // },
             plugins: {
                 rowedit: {
                     autoConfirm: false
@@ -27,6 +27,7 @@ Ext.define('Extbasico.view.produtos.produtosview', {
                     dataIndex: 'nome',
                     editable: true,
                     width: 250,
+                    flex: 1,
                     cell: { userCls: 'bold' }
                 },
                 {
@@ -47,26 +48,50 @@ Ext.define('Extbasico.view.produtos.produtosview', {
                 //select: 'onLinhaSelecionada'
             }
         },
+        // {
+        //     xtype: 'container',
+        //     layout: 'hbox',
+        //     padding: 10,
+        //     items: [
+        //         {
+        //             xtype: 'button',
+        //             text: 'Incluir',
+        //             handler: 'onAddClick',
+        //             iconCls: 'x-fa fa-plus'
+        //         },
+        //         {
+        //             xtype: 'button',
+        //             text: 'Alterar',
+        //             handler: 'onEditar',
+        //             iconCls: 'x-fa fa-edit',
+        //             margin: '0 0 0 10'
+        //         },
+        //         {
+        //             xtype: 'button',
+        //             text: 'Excluir',
+        //             handler: 'onDelete',
+        //             iconCls: 'x-fa fa-trash',
+        //             margin: '0 0 0 10'
+        //         }
+        //     ]
+        // },
         {
-            xtype: 'container',
-            layout: 'hbox',
+            xtype: 'toolbar', ///botoes de crud, usar o toolbar aí não precisa declarar xtype
+            dock: 'bottom',
             padding: 10,
             items: [
                 {
-                    xtype: 'button',
                     text: 'Incluir',
                     handler: 'onAddClick',
                     iconCls: 'x-fa fa-plus'
                 },
                 {
-                    xtype: 'button',
                     text: 'Alterar',
                     handler: 'onEditar',
                     iconCls: 'x-fa fa-edit',
                     margin: '0 0 0 10'
                 },
                 {
-                    xtype: 'button',
                     text: 'Excluir',
                     handler: 'onDelete',
                     iconCls: 'x-fa fa-trash',
@@ -74,5 +99,11 @@ Ext.define('Extbasico.view.produtos.produtosview', {
                 }
             ]
         },
+        {
+            xtype: 'pagingtoolbar',
+            store: '{storeprodutosmodel}',
+            dock: 'top',
+            displayInfo: true,
+        }
     ],
 });

@@ -48,4 +48,7 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
             }
         })
     }
+    //duvidas ondelete
+    //pq a referencia é o button
+    //pq o uso das variaveis, me,dialog,record
 });

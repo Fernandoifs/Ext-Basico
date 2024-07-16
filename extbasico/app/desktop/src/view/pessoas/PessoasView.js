@@ -101,13 +101,13 @@ Ext.define('Extbasico.view.pessoas.pessoasview', {
         //             displayField: 'name',
         //             valueField: 'id',
         //             clearable: true,
-        //             grow: true,
+        //             grow: true, //*aumenta a combo se o valor for maior
         //             growMin: 180,
         //             growMax: 300,
         //             matchFieldWidth: true,
-        //             editable: true,
-        //             queryMode: 'local',
-        //             anyMatch: true,
+        //             editable: true, //permite escrever no campo da combo
+        //             queryMode: 'local', //ao escrever busca autocompleta com o valor da combo,salva valores localmente
+        //             anyMatch: true, //busca qualquer palavra dentro dos valores
         //             bind: {
         //                 store: '{storemodel2}'
         //             }
