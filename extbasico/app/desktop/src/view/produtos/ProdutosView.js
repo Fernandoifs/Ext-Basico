@@ -68,7 +68,7 @@ Ext.define('Extbasico.view.produtos.produtosview', {
                 {
                     xtype: 'button',
                     text: 'Excluir',
-                    handler: 'onDeleteClick',
+                    handler: 'onDelete',
                     iconCls: 'x-fa fa-trash',
                     margin: '0 0 0 10'
                 }

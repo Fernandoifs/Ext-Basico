@@ -24,4 +24,28 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
     //    var nome = record[0].get('nome');
     //    Ext.Msg.alert('Seleção', 'Você selecionou o produto <b>' + nome + '</b>!');
     //}
+    onDelete: function (button) {
+        debugger
+        var me = this,
+            vm = me.getViewModel(),
+            dialog = me.getView(),
+            record = vm.get('record');
+
+        Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
+            if (option === 'yes') {
+                dialog.mask('Excluindo, aguarde...');
+                record.erase({
+                    callback: function (record) {
+                        dialog.unmask();
+                        if (record.dropped) {
+                            Ext.toast('Registro Excluido!', 4000);
+                            dialog.close();
+                        } else {
+                            record.reject();
+                        }
+                    },
+                });
+            }
+        })
+    }
 });
