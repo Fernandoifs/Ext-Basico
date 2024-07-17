@@ -25,7 +25,6 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
     //    Ext.Msg.alert('Seleção', 'Você selecionou o produto <b>' + nome + '</b>!');
     //}
     onDelete: function (button) {
-        debugger
         var me = this,
             vm = me.getViewModel(),
             dialog = me.getView(),

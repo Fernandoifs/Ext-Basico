@@ -1,4 +1,4 @@
-Ext.define('Extbasico.view.produtos.produtosview', {
+Ext.define('Extbasico.view.produtos.ProdutosView', {
     extend: 'Ext.container.Container',
     xtype: 'produtosview',
     cls: 'produtosview',
