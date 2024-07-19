@@ -24,30 +24,66 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
     //    var nome = record[0].get('nome');
     //    Ext.Msg.alert('Seleção', 'Você selecionou o produto <b>' + nome + '</b>!');
     //}
-    onDelete: function (button) {
-        var me = this,
-            vm = me.getViewModel(),
-            dialog = me.getView(),
-            record = vm.get('record');
+    // onDelete: function (button) {
+    //     var me = this,
+    //         vm = me.getViewModel(),
+    //         dialog = me.getView(),
+    //         record = vm.get('record');
 
-        Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
-            if (option === 'yes') {
-                dialog.mask('Excluindo, aguarde...');
-                record.erase({
-                    callback: function (record) {
-                        dialog.unmask();
-                        if (record.dropped) {
-                            Ext.toast('Registro Excluido!', 4000);
-                            dialog.close();
-                        } else {
-                            record.reject();
-                        }
-                    },
-                });
-            }
-        })
-    }
+    //     Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
+    //         if (option === 'yes') {
+    //             dialog.mask('Excluindo, aguarde...');
+    //             record.erase({
+    //                 callback: function (record) {
+    //                     dialog.unmask();
+    //                     if (record.dropped) {
+    //                         Ext.toast('Registro Excluido!', 4000);
+    //                         dialog.close();
+    //                     } else {
+    //                         record.reject();
+    //                     }
+    //                 },
+    //             });
+    //         }
+    //     })
+    // },
     //duvidas ondelete
     //pq a referencia é o button
     //pq o uso das variaveis, me,dialog,record
+
+    // EVENTOS PARA CLIQUE SEGURADO DO MOUSE
+    onMouseUp: function(e, eOpts) {
+        console.log('Mouse button released', e, eOpts);
+    },
+    onMouseDown: function(e, eOpts) {
+        console.log('Mouse button pressionado', e, eOpts);
+
+    },
+
+    onDelete: function (button) {
+        var grid = this.lookupReference('produtosGrid');
+        var selection = grid.getSelection();
+        var record = selection.get('idproduto');
+
+        if (!selection || selection.length === 0) {
+            Ext.Msg.alert('Aviso', 'Nenhum produto selecionado para edição.');
+            return;
+        }
+
+        Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
+            if (option === 'yes') {
+                record.erase({
+                    callback: function (record, operation, success) {
+                        if (success) {
+                            Ext.toast('Registro Excluído!', 4000);
+                        } else {
+                            Ext.Msg.alert('Erro', 'Falha ao excluir o registro.');
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+
 });

@@ -2,7 +2,7 @@ Ext.define('Extbasico.view.produtos.ProdutosView', {
     extend: 'Ext.container.Container',
     xtype: 'produtosview',
     cls: 'produtosview',
-    requires: ['Ext.grid.rowedit.Plugin'],
+    requires: ['Ext.grid.rowedit.Plugin','Ext.grid.plugin.PagingToolbar'],
     controller: { type: 'produtoscontroller' },
     viewModel: { type: 'produtosmodel' },
     layout: 'vbox',
@@ -19,7 +19,8 @@ Ext.define('Extbasico.view.produtos.ProdutosView', {
             plugins: {
                 rowedit: {
                     autoConfirm: false
-                }
+                },
+                pagingtoolbar: true
             },
             columns: [
                 {
@@ -46,6 +47,7 @@ Ext.define('Extbasico.view.produtos.ProdutosView', {
             listeners: {
                 canceledit: 'onEditCancelled',
                 //select: 'onLinhaSelecionada'
+                mousedown: 'onMouseDown'
             }
         },
         // {
@@ -99,11 +101,5 @@ Ext.define('Extbasico.view.produtos.ProdutosView', {
                 }
             ]
         },
-        {
-            xtype: 'pagingtoolbar',
-            store: '{storeprodutosmodel}',
-            dock: 'top',
-            displayInfo: true,
-        }
     ],
 });
