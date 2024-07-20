@@ -52,38 +52,61 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
     //pq o uso das variaveis, me,dialog,record
 
     // EVENTOS PARA CLIQUE SEGURADO DO MOUSE
-    onMouseUp: function(e, eOpts) {
+    onMouseUp: function (e, eOpts) {
         console.log('Mouse button released', e, eOpts);
     },
-    onMouseDown: function(e, eOpts) {
+    onMouseDown: function (e, eOpts) {
         console.log('Mouse button pressionado', e, eOpts);
 
     },
 
-    onDelete: function (button) {
-        var grid = this.lookupReference('produtosGrid');
-        var selection = grid.getSelection();
-        var record = selection.get('idproduto');
-
-        if (!selection || selection.length === 0) {
-            Ext.Msg.alert('Aviso', 'Nenhum produto selecionado para edição.');
-            return;
+    o0nDelete: function (button, e, eOpts) {
+        var me = this,
+            vm = me.getViewModel(),
+            selection = vm.get('produtosGrid');
+			var produto = selection[0].get('nome');
+        console.log(produto)    
+    },
+    onDelete: function (button, e, eOpts) {debugger
+        var me = this,
+            grid = me.lookupReference('produtosGrid'), 
+            selection = grid.getSelection(); 
+    
+        if (selection.length > 0) {
+            var produto = selection.get('nome'); // tentando obter o nome/id do produto selecionado
+            console.log(produto);
+        } else {
+            console.log('Nenhum produto selecionado.');
         }
-
-        Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
-            if (option === 'yes') {
-                record.erase({
-                    callback: function (record, operation, success) {
-                        if (success) {
-                            Ext.toast('Registro Excluído!', 4000);
-                        } else {
-                            Ext.Msg.alert('Erro', 'Falha ao excluir o registro.');
-                        }
-                    }
-                });
-            }
-        });
     }
+    
+    
+    //var selection = grid.getSelectionModel.getSelection();
+
+    //     if (!selection || selection.length === 0) {
+    //         Ext.Msg.alert('Aviso', 'Nenhum produto selecionado para exclusão.');
+    //         return;
+    //     }
+
+    //     Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir os produtos selecionados?', function (option) {
+    //         if (option === 'yes') {
+    //             var recordsToDelete = selection.map(record => record);
+
+    //             Ext.each(recordsToDelete, function (record) {
+    //                 record.erase({
+    //                     callback: function (record, operation, success) {
+    //                         if (success) {
+    //                             grid.getStore().remove(record);
+    //                             Ext.toast('Registro excluído!', 4000);
+    //                         } else {
+    //                             Ext.Msg.alert('Erro', 'Falha ao excluir o registro.');
+    //                         }
+    //                     }
+    //                 });
+    //             });
+    //         }
+    //     });
+    // },
 
 
 });
