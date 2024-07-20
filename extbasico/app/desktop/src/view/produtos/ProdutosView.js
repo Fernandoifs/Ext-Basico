@@ -20,7 +20,7 @@ Ext.define('Extbasico.view.produtos.ProdutosView', {
                 rowedit: {
                     autoConfirm: false
                 },
-                pagingtoolbar: true
+                //pagingtoolbar: true
             },
             columns: [
                 {
