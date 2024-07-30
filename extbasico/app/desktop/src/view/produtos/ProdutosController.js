@@ -59,7 +59,7 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
         console.log('Mouse button pressionado', e, eOpts);
 
     },
-
+    // detete ok
     //delete pegando a linha
     onDelete: function (button, e, eOpts) {
         var me = this,
@@ -101,6 +101,6 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
                     Ext.Toast('Registros excluídos!', 4000);
                 });
             }
-        }); 
+        });
     }
 })
