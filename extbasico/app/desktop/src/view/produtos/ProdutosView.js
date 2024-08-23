@@ -2,7 +2,7 @@ Ext.define('Extbasico.view.produtos.ProdutosView', {
     extend: 'Ext.container.Container',
     xtype: 'produtosview',
     cls: 'produtosview',
-    requires: ['Ext.grid.rowedit.Plugin','Ext.grid.plugin.PagingToolbar'],
+    requires: ['Ext.grid.rowedit.Plugin', 'Ext.grid.plugin.PagingToolbar'],
     controller: { type: 'produtoscontroller' },
     viewModel: { type: 'produtosmodel' },
     layout: 'vbox',
@@ -51,6 +51,23 @@ Ext.define('Extbasico.view.produtos.ProdutosView', {
             }
         },
         // {
+        //     xtype: 'button',
+        //     text: 'Open Form',
+        //     handler: function () {
+        //         Ext.create('Ext.window.Window', {
+        //             title: 'New User',
+        //             height: 400,
+        //             width: 350,
+        //             layout: 'fit',
+        //             items: [
+        //                 {
+        //                     xtype: 'userform'  // Utiliza o componente reutilizável
+        //                 }
+        //             ]
+        //         }).show();
+        //     }
+        // }
+        // {
         //     xtype: 'container',
         //     layout: 'hbox',
         //     padding: 10,
@@ -89,7 +106,7 @@ Ext.define('Extbasico.view.produtos.ProdutosView', {
                 },
                 {
                     text: 'Alterar',
-                    handler: 'onEditar',
+                    handler: 'onAlterar',
                     iconCls: 'x-fa fa-edit',
                     margin: '0 0 0 10'
                 },

@@ -2,11 +2,81 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.produtoscontroller',
 
+    onAddClick: function () {
+        console.log('clicou incluir'),
+            Ext.create('Ext.window.Window', {
+                //title: 'New User',
+                height: 400,
+                width: 500,
+                layout: 'fit',
+                closable: true,
+                items: [
+                    {
+                        xtype: 'userform' 
+                    }
+                ]
+            }).show();
+    },
+
+    onAlterar: function () {
+        console.log('clicou Alterar')
+    },
+
+    onDelete: function (button, e, eOpts) {
+        var me = this,
+            grid = me.lookupReference('produtosGrid'),
+            selection = grid.getSelection(),
+            dialog = me.getView();
+
+        if (!selection || selection.length === 0) {
+            Ext.Msg.alert('Aviso', 'Nenhum produto selecionado para exclusão.');
+            return;
+        }
+
+        Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir os produtos selecionados?', function (option) {
+            if (option === 'yes') {
+                dialog.mask('Excluindo, aguarde...');
+                Ext.each(selection, function (record) {
+                    // RECORD ERASE É USADO QUANDO TEM BACKEND
+                    // record.erase({
+                    //     success: function (record, operation) {
+                    //         grid.getStore().remove(record);
+                    //         Ext.toast('Registro excluído!', 4000);
+                    //     },
+                    //     failure: function (record, operation) {
+                    //         Ext.Msg.alert('Erro', 'Falha ao excluir o registro.');
+                    //         record.reject();
+                    //     },
+                    //     callback: function (record, operation, success) {
+                    //         dialog.unmask();
+                    //         if (!success) {
+                    //             Ext.Msg.alert('Erro', 'Falha ao excluir o registro.');
+                    //         }
+                    //     }
+                    // });
+                    Ext.each(selection, function (record) {
+                        grid.getStore().remove(record);
+                    });
+
+                    dialog.unmask();
+                    Ext.Toast('Registros excluídos!', 4000);
+                });
+            }
+        });
+    },
+    // EVENTOS PARA CLIQUE SEGURADO DO MOUSE
+    onMouseUp: function (e, eOpts) {
+        console.log('Mouse button released', e, eOpts);
+    },
+    onMouseDown: function (e, eOpts) {
+        console.log('Mouse button pressionado', e, eOpts);
+
+    },
     onEditCancelled: function (editor, value, startValue, eOpts) {
         var user = Ext._find(value.record.store.config.data.items, { name: value.record.data.name });
         Ext.Msg.confirm('Confirmação', value.record.data.name + ': ' + user.phone + ' is phone number', 'onConfirm', this);
     },
-    onEditar: function () {
+    onEditarxx: function () {
         var grid = this.lookupReference('produtosGrid'),
             selection = grid.getSelectionModel().getSelection();
 
@@ -50,57 +120,4 @@ Ext.define('Extbasico.view.produtos.ProdutosController', {
     //duvidas ondelete
     //pq a referencia é o button
     //pq o uso das variaveis, me,dialog,record
-
-    // EVENTOS PARA CLIQUE SEGURADO DO MOUSE
-    onMouseUp: function (e, eOpts) {
-        console.log('Mouse button released', e, eOpts);
-    },
-    onMouseDown: function (e, eOpts) {
-        console.log('Mouse button pressionado', e, eOpts);
-
-    },
-    // detete ok
-    //delete pegando a linha
-    onDelete: function (button, e, eOpts) {
-        var me = this,
-            grid = me.lookupReference('produtosGrid'),
-            selection = grid.getSelection(),
-            dialog = me.getView();
-
-        if (!selection || selection.length === 0) {
-            Ext.Msg.alert('Aviso', 'Nenhum produto selecionado para exclusão.');
-            return;
-        }
-
-        Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir os produtos selecionados?', function (option) {
-            if (option === 'yes') {
-                dialog.mask('Excluindo, aguarde...');
-                Ext.each(selection, function (record) {
-                    // RECORD ERASE É USADO QUANDO TEM BACKEND
-                    // record.erase({
-                    //     success: function (record, operation) {
-                    //         grid.getStore().remove(record);
-                    //         Ext.toast('Registro excluído!', 4000);
-                    //     },
-                    //     failure: function (record, operation) {
-                    //         Ext.Msg.alert('Erro', 'Falha ao excluir o registro.');
-                    //         record.reject();
-                    //     },
-                    //     callback: function (record, operation, success) {
-                    //         dialog.unmask();
-                    //         if (!success) {
-                    //             Ext.Msg.alert('Erro', 'Falha ao excluir o registro.');
-                    //         }
-                    //     }
-                    // });
-                    Ext.each(selection, function (record) {
-                        grid.getStore().remove(record);
-                    });
-
-                    dialog.unmask();
-                    Ext.Toast('Registros excluídos!', 4000);
-                });
-            }
-        });
-    }
 })
